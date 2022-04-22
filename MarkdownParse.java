@@ -22,7 +22,8 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
 
             //only add the link if it's not an image link and both ( and ) were found
-            if(openParen != -1 && closeParen != -1) {
+            //and if there are no more than 3 characters between ] and (
+            if(openParen != -1 && closeParen != -1 && (openParen - closeBracket) < 3) {
                 if(openBracket == 0) {
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
                 } else {
