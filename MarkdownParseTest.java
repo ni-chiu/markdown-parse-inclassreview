@@ -6,11 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class MarkdownParseTest {
-    @Test
-    public void addition() {
-        assertEquals(2, 1 + 1);
-    }
-
+    
     @Test
     public void test1() throws IOException {
         Path fileName = Path.of("test-file.md");
@@ -83,13 +79,13 @@ public class MarkdownParseTest {
         assertEquals(expectedResults, MarkdownParse.getLinks(content));
     }
 
-    // @Test
-    // public void test7() throws IOException {
-    //     Path fileName = Path.of("test-file7.md");
-    //     String content = Files.readString(fileName);
-    //     ArrayList<String> expectedResults = new ArrayList<String>();
-    //     assertEquals(expectedResults, MarkdownParse.getLinks(content));
-    // }
+    @Test
+    public void test7() throws IOException {
+        Path fileName = Path.of("test-file7.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> expectedResults = new ArrayList<String>();
+        assertEquals(expectedResults, MarkdownParse.getLinks(content));
+    }
 
     @Test
     public void test8() throws IOException {
