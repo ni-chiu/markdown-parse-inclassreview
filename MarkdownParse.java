@@ -13,13 +13,20 @@ public class MarkdownParse {
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
             int openBracket = markdown.indexOf("[", currentIndex);
+
+            //if there's no more open brackets, quit
             if(openBracket == -1) { break; }
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
+
+            //only add the link if it's not an image link and both ( and ) were found
             if(markdown.charAt(openBracket - 1) != '!' && openParen != -1 && closeParen != -1) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
+
+            //if either ( or ) were not found, restart the search from ]
+            //otherwise restart the search from )
             if(openParen == -1 || closeParen == -1) {
                 currentIndex = closeBracket + 1;
             } else {
