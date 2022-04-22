@@ -17,12 +17,19 @@ public class MarkdownParse {
             //if there's no more open brackets, quit
             if(openBracket == -1) { break; }
             int closeBracket = markdown.indexOf("]", openBracket);
+            if(closeBracket == -1) { break; }
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
 
             //only add the link if it's not an image link and both ( and ) were found
-            if(markdown.charAt(openBracket - 1) != '!' && openParen != -1 && closeParen != -1) {
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            if(openParen != -1 && closeParen != -1) {
+                if(openBracket == 0) {
+                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                } else {
+                    if(markdown.charAt(openBracket - 1) != '!') {
+                        toReturn.add(markdown.substring(openParen + 1, closeParen));
+                    }
+                }
             }
 
             //if either ( or ) were not found, restart the search from ]
