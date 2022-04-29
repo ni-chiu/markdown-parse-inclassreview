@@ -20,6 +20,9 @@ public class MarkdownParse {
             if(closeBracket == -1) { break; }
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
+            if(markdown.indexOf("(", openParen + 1) != -1 && markdown.indexOf("(", openParen + 1) < closeParen) {
+                closeParen = markdown.indexOf(")", closeParen + 1);
+            }
 
             //only add the link if it's not an image link and both ( and ) were found
             //and if there are no more than 3 characters between ] and (
