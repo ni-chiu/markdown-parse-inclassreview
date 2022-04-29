@@ -1,2 +1,2 @@
 [](a link on the [first] line)
-[hello](qwertyuiop()()
+[link](https://linkwithparenthesesinit.com/qwerty(qwerty)asdfgh.html)

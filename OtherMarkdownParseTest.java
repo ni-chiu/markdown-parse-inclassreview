@@ -93,7 +93,7 @@ public class OtherMarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> expectedResults = new ArrayList<String>();
         expectedResults.add("a link on the [first] line");
-        expectedResults.add("qwertyuiop(");
+        expectedResults.add("https://linkwithparenthesesinit.com/qwerty(qwerty)asdfgh.html");
         assertEquals(expectedResults, MarkdownParse.getLinks(content));
     }
 }
