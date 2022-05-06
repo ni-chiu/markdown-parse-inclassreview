@@ -45,7 +45,7 @@ public class MarkdownParse {
                 currentIndex = closeParen + 1;
             }
         }
-
+        
         return toReturn;
     }
 
